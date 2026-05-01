@@ -9,6 +9,8 @@ export ADD_HOOKS="self-updater.hook"
 export UPINFO="gh-releases-zsync|${GITHUB_REPOSITORY%/*}|${GITHUB_REPOSITORY#*/}|latest|*$ARCH.AppImage.zsync"
 export DESKTOP=PATH_OR_URL_TO_DESKTOP_ENTRY
 export DEPLOY_OPENGL=1
+export DEPLOY_VULKAN=1
+export DEPLOY_PULSE=1
 
 # Deploy dependencies
 quick-sharun ./AppDir/bin/Gothic2Notr

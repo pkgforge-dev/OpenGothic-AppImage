@@ -38,6 +38,6 @@ echo "$VERSION" > ~/version
 mkdir -p ./AppDir/bin
 cd ./OpenGothic
 mkdir -p build && cd build
-cmake -DCMAKE_BUILD_TYPE=Release ..
+cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS="-Wno-error=stringop-overflow" ..
 make -j$(nproc)
 mv -v opengothic/Gothic2Notr ../../AppDir/bin

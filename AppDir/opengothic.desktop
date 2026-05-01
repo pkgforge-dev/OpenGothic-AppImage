@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=OpenGothic
+Exec=Gothic2Notr
+Type=Application
+Icon=icon
+StartupWMClass=
+Categories=Game; Third-person;
+Comment=Reimplementation of Gothic 1 & 2 Notr

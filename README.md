@@ -7,7 +7,7 @@
 [![Latest Stable Release](https://img.shields.io/github/v/release/pkgforge-dev/OpenGothic-AppImage)](https://github.com/pkgforge-dev/OpenGothic-AppImage/releases/latest)
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Try/OpenGothic/refs/heads/master/icon.ico" width="128" />
+  <img src="https://raw.githubusercontent.com/Link4Electronics/OpenGothic-AppImage/refs/heads/main/AppDir/OpenGothic.png" width="128" />
 </p>
 
 

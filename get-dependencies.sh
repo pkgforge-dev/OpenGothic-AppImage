@@ -8,6 +8,7 @@ echo "Installing package dependencies..."
 echo "---------------------------------------------------------------"
 pacman -Syu --noconfirm \
     cmake \
+    glu
 
 echo "Installing debloated packages..."
 echo "---------------------------------------------------------------"

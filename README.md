@@ -7,7 +7,7 @@
 [![Latest Stable Release](https://img.shields.io/github/v/release/pkgforge-dev/OpenGothic-AppImage)](https://github.com/pkgforge-dev/OpenGothic-AppImage/releases/latest)
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Try/OpenGothic/refs/heads/master/icon.ico" width="128" />
+  <img src="https://raw.githubusercontent.com/pkgforge-dev/OpenGothic-AppImage/refs/heads/main/AppDir/icon.png" width="128" />
 </p>
 
 
@@ -17,9 +17,11 @@
 
 </div>
 
+## ⚠️ Game assets within `~/.local/share/opengothic` ⚠️
+
 ---
 
-AppImage made using [sharun](https://github.com/VHSgunzo/sharun) and its wrapper [quick-sharun](https://github.com/pkgforge-dev/Anylinux-AppImages/blob/main/useful-tools/quick-sharun.sh), which makes it extremely easy to turn any binary into a portable package reliably without using containers or similar tricks. 
+AppImage made using [quick-sharun](https://github.com/pkgforge-dev/Anylinux-AppImages/blob/main/useful-tools/quick-sharun.sh), which makes it extremely easy to turn any binary into a portable package reliably without using containers or similar tricks. 
 
 **This AppImage bundles everything and it should work on any Linux distro, including old and musl-based ones.**
 

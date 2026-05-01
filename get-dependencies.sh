@@ -26,3 +26,16 @@ get-debloated-pkgs --add-common --prefer-nano
 # else
 # 	regular build steps
 # fi
+echo "Making nightly build of OpenGothic..."
+echo "---------------------------------------------------------------"
+REPO="https://github.com/StrikerX3/Ymir"
+VERSION="$(git ls-remote "$REPO" HEAD | cut -c 1-9 | head -1)"
+git clone --recursive --depth 1 "$REPO" ./OpenGothic
+echo "$VERSION" > ~/version
+
+mkdir -p ./AppDir/bin
+cd ./OpenGothic
+mkdir -p build && cd build
+cmake -DCMAKE_BUILD_TYPE=Release ..
+make -j$(nproc)
+mv -v opengothic/Gothic2Notr ../../AppDir/bin

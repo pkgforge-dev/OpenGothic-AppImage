@@ -6,21 +6,29 @@ ARCH=$(uname -m)
 
 echo "Installing package dependencies..."
 echo "---------------------------------------------------------------"
-# pacman -Syu --noconfirm PACKAGESHERE
+pacman -Syu --noconfirm cmake glslang glu vulkan-headers
 
 echo "Installing debloated packages..."
 echo "---------------------------------------------------------------"
 get-debloated-pkgs --add-common --prefer-nano
 
-# Comment this out if you need an AUR package
-#make-aur-package PACKAGENAME
-
-# If the application needs to be manually built that has to be done down here
-
-# if you also have to make nightly releases check for DEVEL_RELEASE = 1
-#
-# if [ "${DEVEL_RELEASE-}" = 1 ]; then
-# 	nightly build steps
-# else
-# 	regular build steps
-# fi
+echo "Building OpenGothic..."
+echo "---------------------------------------------------------------"
+mkdir -p ./AppDir/bin
+git clone --recursive --depth 1 https://github.com/Try/OpenGothic ./OpenGothic
+cd ./OpenGothic
+#if [ "${DEVEL_RELEASE-}" = 1 ]; then
+    echo "Making nightly build..."
+    git rev-parse --short HEAD > ~/version
+#else
+#    echo "Making stable build of OpenGothic..."
+#    echo "---------------------------------------------------------------"
+#    git fetch --tags --depth 1
+#    RAW_TAG=$(git tag -l "opengothic-v*" | sort -V | tail -n 1)
+#    git checkout "$RAW_TAG"
+#    echo "$RAW_TAG" | sed 's/opengothic-v//' > ~/version
+#fi
+mkdir -p build && cd build
+cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS="-Wno-error=stringop-overflow -Wno-array-bounds" ..
+make -j$(nproc)
+mv -v opengothic/Gothic2Notr ../../AppDir/bin

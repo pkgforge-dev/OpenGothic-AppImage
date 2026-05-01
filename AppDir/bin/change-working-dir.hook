@@ -2,4 +2,4 @@
 dir=$DATADIR/opengothic
 mkdir -p "$dir"
 cd "$dir"
-exec "$APPDIR/bin/Gothic2Notr -g "$dir"
+exec "$APPDIR/bin/Gothic2Notr" -g "$dir"

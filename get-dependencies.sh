@@ -28,7 +28,7 @@ get-debloated-pkgs --add-common --prefer-nano
 # fi
 echo "Making nightly build of OpenGothic..."
 echo "---------------------------------------------------------------"
-REPO="https://github.com/StrikerX3/Ymir"
+REPO="https://github.com/Try/OpenGothic"
 VERSION="$(git ls-remote "$REPO" HEAD | cut -c 1-9 | head -1)"
 git clone --recursive --depth 1 "$REPO" ./OpenGothic
 echo "$VERSION" > ~/version

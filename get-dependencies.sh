@@ -31,17 +31,17 @@ echo "---------------------------------------------------------------"
 mkdir -p ./AppDir/bin
 git clone --recursive --depth 1 https://github.com/Try/OpenGothic ./OpenGothic
 cd ./OpenGothic
-#if [ "${DEVEL_RELEASE-}" = 1 ]; then
+if [ "${DEVEL_RELEASE-}" = 1 ]; then
     echo "Making nightly build..."
     git rev-parse --short HEAD > ~/version
-#else
-#    echo "Making stable build of OpenGothic..."
-#    echo "---------------------------------------------------------------"
-#    git fetch --tags --depth 1
-#    RAW_TAG=$(git tag -l "opengothic-v*" | sort -V | tail -n 1)
-#    git checkout "$RAW_TAG"
-#    echo "$RAW_TAG" | sed 's/opengothic-v//' > ~/version
-#fi
+else
+    echo "Making stable build of OpenGothic..."
+    echo "---------------------------------------------------------------"
+    git fetch --tags --depth 1
+    RAW_TAG=$(git tag -l "opengothic-v*" | sort -V | tail -n 1)
+    git checkout "$RAW_TAG"
+    echo "$RAW_TAG" | sed 's/opengothic-v//' > ~/version
+fi
 
 #mkdir -p ./AppDir/bin
 #cd ./OpenGothic
@@ -50,3 +50,7 @@ mkdir -p build && cd build
 cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS="-Wno-error=stringop-overflow" ..
 make -j$(nproc)
 mv -v opengothic/Gothic2Notr ../../AppDir/bin
+if [ ! "${DEVEL_RELEASE-}" = 1 ]; then
+    #mv -v ./OpenGothic/build/opengothic/libTempest.so ../../AppDir/bin
+    mv -v opengothic/libTempest.so ../../AppDir/bin
+fi

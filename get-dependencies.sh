@@ -20,12 +20,6 @@ get-debloated-pkgs --add-common --prefer-nano
 #make-aur-package PACKAGENAME
 
 # If the application needs to be manually built that has to be done down here
-#echo "Making nightly build of OpenGothic..."
-#echo "---------------------------------------------------------------"
-#REPO="https://github.com/Try/OpenGothic"
-#VERSION="$(git ls-remote "$REPO" HEAD | cut -c 1-9 | head -1)"
-#git clone --recursive --depth 1 "$REPO" ./OpenGothic
-#echo "$VERSION" > ~/version
 echo "Building OpenGothic..."
 echo "---------------------------------------------------------------"
 mkdir -p ./AppDir/bin
@@ -42,9 +36,6 @@ cd ./OpenGothic
 #    git checkout "$RAW_TAG"
 #    echo "$RAW_TAG" | sed 's/opengothic-v//' > ~/version
 #fi
-
-#mkdir -p ./AppDir/bin
-#cd ./OpenGothic
 sed -i '4i#include <cstdint>' game/dmusic/soundfont.h
 mkdir -p build && cd build
 cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS="-Wno-error=stringop-overflow" ..

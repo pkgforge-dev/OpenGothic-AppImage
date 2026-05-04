@@ -35,7 +35,9 @@ if [ "${DEVEL_RELEASE-}" = 1 ]; then
     echo "Making nightly build..."
     git rev-parse --short HEAD > ~/version
 else
-    echo "Making stable build..."
+    echo "Making stable build of OpenGothic..."
+    echo "---------------------------------------------------------------"
+    git fetch --tags --depth 1
     RAW_TAG=$(git tag -l "opengothic-v*" | sort -V | tail -n 1)
     git checkout "$RAW_TAG"
     echo "$RAW_TAG" | sed 's/opengothic-v//' > ~/version

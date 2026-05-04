@@ -50,6 +50,3 @@ mkdir -p build && cd build
 cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS="-Wno-error=stringop-overflow" ..
 make -j$(nproc)
 mv -v opengothic/Gothic2Notr ../../AppDir/bin
-#if [ ! "${DEVEL_RELEASE-}" = 1 ]; then
-#    mv -v opengothic/libTempest.so ../../AppDir/bin
-#fi

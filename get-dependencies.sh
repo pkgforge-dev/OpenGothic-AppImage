@@ -6,11 +6,7 @@ ARCH=$(uname -m)
 
 echo "Installing package dependencies..."
 echo "---------------------------------------------------------------"
-pacman -Syu --noconfirm \
-    cmake          \
-    glslang        \
-    glu            \
-    vulkan-headers
+pacman -Syu --noconfirm cmake glslang glu vulkan-headers
 
 echo "Installing debloated packages..."
 echo "---------------------------------------------------------------"

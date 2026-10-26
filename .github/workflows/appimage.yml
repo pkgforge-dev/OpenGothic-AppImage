@@ -44,7 +44,7 @@ jobs:
           # comment out the arches that are not wanted
           # note 'if: false' is set by default and these are all turned off
           - { name: Build AppImage, arch: riscv64, platform: linux/riscv64 }
-          - { name: Build AppImage, arch: loongarch64, platform: linux/loong64 }
+          #- { name: Build AppImage, arch: loongarch64, platform: linux/loong64 }
           #- { name: Build AppImage, arch: ppc64le, platform: linux/ppc64le }
           #- { name: Build AppImage, arch: ppc64, platform: linux/ppc64 } # BE
     steps:
